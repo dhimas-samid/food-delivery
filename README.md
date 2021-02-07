@@ -52,5 +52,7 @@ Jalankan perintah berikut di terminal/cmd/powershell
 ```
 docker-compose up flyway
 ```
-## Entity Relationship Diagram (ERD)
-ERD untuk tugas ini dapat dilihat di `./erd`
+## Diagram
+Diagram untuk tugas ini dapat dilihat di `./diagrams`
+### Food Delivery Process Swimlane
+### ERD
