@@ -43,17 +43,19 @@ INSERT INTO ms_kurir VALUES (@id_kurir, 'kurir', '081234567892');
 
 CREATE TABLE ms_barang (
   id_barang VARCHAR(255) NOT NULL,
+  id_penjual VARCHAR(255) NOT NULL,
   nama VARCHAR(255) NOT NULL,
   keterangan VARCHAR(255) DEFAULT 'lorem ipsum dolor sit amet',
   harga INT NOT NULL DEFAULT 10000,
   foto VARCHAR(255) DEFAULT 'https://source.unsplash.com/random/100x100',
   stok INT NOT NULL DEFAULT 10,
   tersedia TINYINT(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (id_barang)
+  PRIMARY KEY (id_barang),
+  FOREIGN KEY (id_penjual) REFERENCES ms_penjual(id_penjual)
 );
 
 SET @id_barang = (SELECT UUID());
-INSERT INTO ms_barang (id_barang, nama) VALUES (@id_barang, 'barang');
+INSERT INTO ms_barang (id_barang, id_penjual, nama) VALUES (@id_barang, @id_penjual, 'barang');
 
 CREATE TABLE tr_keranjang (
   id_keranjang VARCHAR(255) NOT NULL,
